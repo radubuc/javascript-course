@@ -84,20 +84,16 @@
 
 
 //Slightly more advanced credential mechanism
-//var loggedIn = false;
+var loggedIn = false;
 
-//while (!loggedIn) {
-//    let username = prompt("Username: ");
-//    let password = prompt("Password: ");
+while (!loggedIn) {
+    let username = prompt("Username: ");
+    let password = prompt("Password: ");
 
-//    if (username == "sammy123" && password == "12345") {
-//        alert("Welcome back, " + username);
-//        loggedIn = true;
-//    } else {
-//        alert("Incorrect username or password");
-//    }
-//}
-
-var x = 30;
-var y = 6;
-console.log(x = x / y);
+    if (username == "sammy123" && password == "12345") {
+        alert("Welcome back, " + username);
+        loggedIn = true;
+    } else {
+        alert("Incorrect username or password");
+    }
+}
