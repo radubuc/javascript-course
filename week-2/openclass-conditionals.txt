@@ -1,0 +1,108 @@
+if(numberGrade >= 90){
+    console.log(letterGrade = "A");
+}
+    
+    else if(numberGrade >= 80 && numberGrade <= 89){
+    console.log(letterGrade = "B");
+    }
+    
+    else if(numberGrade >= 70 && numberGrade <= 79){
+    console.log(letterGrade = "C");
+    }
+    
+    else if(numberGrade >= 60 && numberGrade <= 69){
+    console.log(letterGrade = "D");
+    }
+    
+    else {
+        console.log(lettergrade = "F");
+    }
+
+
+
+if(num1 == num2){
+    console.log("Num1 is equal to Num2.");
+} 
+
+
+
+if(num1 < myNumber){
+    console.log(num1 + " is smaller than my number, " + myNumber);
+} else if(num1 > myNumber){
+    console.log(num1 + " is larger than my number, " + myNumber);
+} else {
+    console.log(num1 + " is equal to my number, " + myNumber);
+}
+
+
+ if(num1 >= num2){
+     if(num3 >= num4){
+         console.log("Both statements are true.");
+     } else {
+         console.log("The first statement is true, but the second is not.");
+     }
+ } console.log("Program ended.")
+
+
+switch(monthNumber){
+    case 1:
+        console.log("January");
+        break;
+    case 2:
+        console.log("February");
+        break;
+    case 3:
+        console.log("March");
+        break;
+    case 4:
+        console.log("April");
+        break;
+    case 5:
+        console.log("May");
+        break;
+    case 6:
+        console.log("June");
+        break;
+    case 7:
+        console.log("July");
+        break;
+    case 8:
+        console.log("August");
+        break;
+    case 9:
+        console.log("September");
+        break;
+    case 10:
+        console.log("October");
+        break;
+    case 11:
+        console.log("November");
+        break;
+    case 12:
+        console.log("December");
+        break;
+    default:
+        console.log("Invalid Month");
+}
+
+
+if(num1 < num2){
+    console.log(num1)
+} else if(num2 < num1){
+    console.log(num2)
+} else {
+    console.log("same")
+}
+
+
+if(age >= 16){
+    canDrive = true;
+    console.log(canDrive)
+}
+
+
+if(money >= costOfSoda){
+    console.log("I can buy a soda!")
+} else{
+        console.log("I need to earn some more money!")
+    }
