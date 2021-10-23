@@ -1,0 +1,32 @@
+for(i = 0; i < 100; i++){
+    if(i % 2 !== 0){
+        console.log(i);
+    }
+}
+
+
+for(i = 0; i < 10; i++){
+    console.log(i);
+}
+
+
+
+if(numericGrade >= 90){
+    console.log(letterGrade = "A");
+}
+    
+    else if(numericGrade >= 80 && numericGrade <= 89){
+    console.log(letterGrade = "B");
+    }
+    
+    else if(numericGrade >= 70 && numericGrade <= 79){
+    console.log(letterGrade = "C");
+    }
+    
+    else if(numericGrade >= 60 && numericGrade <= 69){
+    console.log(letterGrade = "D");
+    }
+    
+    else {
+        console.log(lettergrade = "F");
+    }
