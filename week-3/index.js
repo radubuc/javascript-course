@@ -113,22 +113,30 @@
 
 
 
-//OBJECTS VIDEO NOTES
-//Object literal
-var dvdPlayer = {
-    height: 3, //properties
-    width: 18, 
-    depth: 12, 
-    weight: 7, 
-    color: 'black',
-    dvdName: 'Mulan',
+////OBJECTS VIDEO NOTES
+////Object literal
+//var dvdPlayer = {
+//    height: 3, //properties
+//    width: 18, 
+//    depth: 12, 
+//    weight: 7, 
+//    color: 'black',
+//    dvdName: 'Mulan',
 
-    //Adding a method
-    printDVDName: function () {
-        console.log(this.dvdName);
-        //"This" refers to object itself. Since dvdName isn't var outside of object, we're calling it as a property inside the object. 
-    }
-}
+//    //Adding a method
+//    printDVDName: function () {
+//        console.log(this.dvdName);
+//        //"This" refers to object itself. Since dvdName isn't var outside of object, we're calling it as a property inside the object. 
+//    }
+//}
 
-console.log(dvdPlayer.depth);
-dvdPlayer.printDVDName(); //Can't return "Mulan" w/o "this" keyword
+//console.log(dvdPlayer.depth);
+//dvdPlayer.printDVDName(); //Can't return "Mulan" w/o "this" keyword
+
+
+
+
+
+//EQUALITY VS IDENTITY VIDEO NOTES
+console.log(2 == '2');
+console.log(2 === '2');
