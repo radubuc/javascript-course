@@ -1,0 +1,49 @@
+Given the array, studentList, add the name "Mary".
+
+let studentList = ["Allen", "Jessica", "Eddie", "Sarah"]
+//write your code here
+studentList.push("Mary");
+
+
+Create an array called groceryList and add "granola", "milk", and "eggs."
+
+let groceryList = [];
+groceryList.push('granola');
+groceryList.push('milk');
+groceryList.push('eggs');
+
+OR
+
+let groceryList = ["granola", "milk", "eggs"];
+
+
+Write a function called sortArray that accepts an array as an argument.
+Within the function, sort the array alphabetically or numerically. Return the sorted array.
+You must use a method of the Array object.
+
+let array = [];
+
+function sortArray(array){
+    array.sort();
+    return array;
+}
+
+OR
+
+function sortArray(array){
+    return array.sort();
+}
+
+
+
+Given the array, studentList, remove the name "Eddie".
+
+let removedStudents = studentList.splice(2, 1);
+(Console.log already in given code)
+
+OR
+
+studentList.splice(2,1);
+//Depends on if you want to reuse the student list without Eddie
+
+
