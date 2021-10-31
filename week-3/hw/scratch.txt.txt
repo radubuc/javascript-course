@@ -1,0 +1,33 @@
+HelloHelloHello
+function concatNx(word, n){
+	let concatWord = "";
+	for (let i = 1; i <= n; i++){
+		concatWord +- word;
+	}
+	return concatWord;
+}
+
+
+
+For Each array method
+let prices = [10.99, 12.99, 12.50, 5.99];
+
+let discountedPrices = [];
+
+prices.forEach(function(e){
+	discountedPrices.push(e * .9);
+});
+
+console.log(prices)
+console.log(discountedPrices);
+
+
+
+
+Map array method
+let newMapArray = secondArray.map(function(item) {
+
+
+});
+
+console.log(newMapAray);
