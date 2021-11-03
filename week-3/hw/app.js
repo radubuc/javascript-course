@@ -165,6 +165,52 @@ console.log("The area of the triangle is: " + findTriangleArea(5, 10) + " units.
 
 
 
+//WEEK 3 QUIZ SCRATCH
+//Given an array named groceryItems, write a loop that prints each element to the console.
+//var groceryItems = ["lettuce", "tomatoes", "croutons", "salad dressing"];
+
+//function printGroceryList(array) {
+//    for (i = 0; i < array.length; i++) {
+//        return groceryItems;
+//    }
+//}
+
+//console.log(printGroceryList(groceryItems));
+
+
+//Write a function that takes two arguments, base and exponent, that are each a number. This function should return the value of the base raised to the power of the exponent.
+//function raiseBaseByExp(b, e) {
+//    return Math.pow(b, e);
+//}
+
+//console.log(raiseBaseByExp(5, 3));
+
+
+//Given the following customer object, write code inside the object that would allow a user of the object to print out all of the customer's contact information including name, email address, and phone number.
+//let customer = {
+//    name: "Tom",
+//    email: "Tom@promineotech.com",
+//    phone: "602-123-0011",
+
+    // Insert your code below this line
+//    document.write(customer.name);
+//    document.write(customer.email);
+//    document.write(customer.phone);
+//}
+
+
+//Write a function that takes two arguments, an array of strings and a string. The function should return the index in the array that the string is located at. If the string is not found in the array return -1.
+//See MDN: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf 
+//var arrOfStrings = ["hi", "hello", "hey", "howdy"];
+
+//function findIndexOfString(array, string) {
+//    if (arrOfStrings.indexOf(string) > -1) {
+//        console.log(arrOfStrings.indexOf(arrOfStrings[i]));
+//    }
+//}
+//console.log(findIndexOfString(arrOfStrings, "hey"));
+
+
 
 
 
