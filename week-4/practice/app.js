@@ -1,4 +1,4 @@
-//ES6: CONST AND LET
+//ES6: CONST AND LET VIDEO NOTES
 
 //Let
 var x = 10; //x = 10
@@ -37,3 +37,88 @@ console.log(anotherString2); //This looks same way in console, but is easier to 
 //Denoted by ${}
 
 console.log(`Six times five = ${6 * 5}`); //Everything inside ${} will be executed then concatenated to string
+
+
+//ES6 ARROW FUNCTIONS VIDEO NOTES
+//Basic example
+//Create full name
+let createFullName = (firstName, lastName) => `${firstName} ${lastName}`; //return not here because it's implied
+console.log(createFullName('Tom', 'Sawyer'));
+
+//Rule 1
+//Example with {}
+//a = string, b = integer
+//Concatenate string x number of times to itself
+let someFunction = (a, b) => {
+    let result = '';
+    for (let i = 0; i < b; i++) {
+        result += a;
+    }
+    return result; //return is needed because there are multiple lines and {}
+}
+console.log(someFunction('Hello', 3));
+
+
+//Rule 2
+//1 parameter, no () needed
+//let someFunction = a => { }
+
+//0 parameters, need blank ()
+//let someFunction = () => { }
+
+
+//Rule 3
+//Best practice: Use const var and assign arrow function when creating stand-alone arrow function, ie. if we're not passing function into something anonymously (no var name given). This is so value of funciton won't be changed later.
+
+
+
+//CALLBACKS VIDEO NOTES
+
+//let username = sentHttpRequest('getUser');
+//console.log(username);
+
+//If function reaches out to a different server to get username, then we try to log username, username could come back undefined. Even though it looks like it should be defined, it hasn't been returned yet. The console.log line started running before username was successfully grabbed. Use callback to get around it
+
+
+//Example from above with callback
+
+//function logUsername(user) {
+//    console.log(user);
+//}
+
+
+//logUsername function is passed into sendHttpRequest Function as an argument
+
+//sendHttpRequest('getUser', logUsername); //Not logUsername()!! We're not invoking logUsername, just name-dropping. Wouldn't work right now because no arguement is being passed in. When sendHttpRequest is finished and has username, it can call the logUsername function and pass in user.
+
+//Can also pass in function anonymously using an arrow function. If going to reuse, don't do it anonymously. Give function a name
+
+//sendHttpRequest('getUser', user => console.log(user));
+
+
+
+//PROMISES VIDEO NOTES
+
+//doSomethingThatReturnsAPromise() //Calls function
+//    .then((value) => { //Passes function anonymously into then
+//        console.log(value); //Log value to console if successful
+//    }).catch((err) => { //If not successful, throw error
+//        console.log(err); //Logs error to console in red
+//    });
+//Then/catch is like a try catch block
+
+
+//The above is using an arrow function, but can also use standard function notation or we could have names for functions. If going to reuse, give it a name
+//This accomplishes same thing as doSomethingThatReturnsAPromise
+
+//function handleEvent(value) {
+//    console.log(value);
+//}
+
+//function handleError(err) {
+//    console.log(err);
+//}
+
+//doSomethingThatReturnsAPromise()
+//    .then(handleEvent)
+//    .catch(handleError);
