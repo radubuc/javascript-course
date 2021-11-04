@@ -41,9 +41,18 @@ console.log(`Six times five = ${6 * 5}`); //Everything inside ${} will be execut
 
 //ES6 ARROW FUNCTIONS VIDEO NOTES
 //Basic example
-//Create full name
-let createFullName = (firstName, lastName) => `${firstName} ${lastName}`; //return not here because it's implied
-console.log(createFullName('Tom', 'Sawyer'));
+//Create full name with standard function
+function createFullName(first, last) {
+    return first + " " + last;
+}
+console.log(createFullName("Huck", "Finn"));
+
+
+//Create full name with arrow function
+let createFullName2 = (firstName, lastName) => `${firstName} ${lastName}`;
+    //return not here because it's implied
+console.log(createFullName2('Tom', 'Sawyer'));
+
 
 //Rule 1
 //Example with {}
@@ -122,3 +131,5 @@ console.log(someFunction('Hello', 3));
 //doSomethingThatReturnsAPromise()
 //    .then(handleEvent)
 //    .catch(handleError);
+
+
