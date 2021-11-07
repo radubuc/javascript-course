@@ -1,3 +1,5 @@
+//Week 3 Coding Assignment
+
 //1a. Subtract first element of array from last
 var ages = [3, 9, 23, 64, 2, 8, 28, 93];
 console.log((ages[ages.length - 1]) - ages[0]);
@@ -187,7 +189,7 @@ console.log(raiseBaseByExp(5, 3));
 
 
 //Given the following customer object, write code inside the object that would allow a user of the object to print out all of the customer's contact information including name, email address, and phone number.
-//1st ways to accomplish
+//1st way to accomplish
 let customer = {
     name: "Tom",
     email: "Tom@promineotech.com",

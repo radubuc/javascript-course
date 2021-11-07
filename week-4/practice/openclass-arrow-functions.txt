@@ -104,3 +104,20 @@ console.log(monthlyPayment(150));
 //Mastery Question: Which of the following is the correct syntax when no arguments are passed?
 //Correct answer:
 //let myFunction = () => return "Test Successful!";
+
+
+
+
+//Convert the following function into an arrow function. Refer to the new function as returnNumber.Note: The returned value is a template literal. Remember to use backticks.
+function myFunction(num) {
+	return `Your number is $(num)`;
+}
+
+
+let returnNumber = (num) => `Your number is ${num}`;
+
+
+
+
+
+
