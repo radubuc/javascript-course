@@ -1,0 +1,44 @@
+What is the relationship between a Class and an Object?
+
+What is your favorite thing you learned this week?
+
+
+
+Class and Object are often used interchangeably, but they are not the same. A class is like a template. A class affects an object in that it "Defines object properties including a valid range of values, and a default value. A class also describes object behavior."1 An object is what you get when you apply the template to a specific circumstance. It possesses "A state in which all of its properties have values that you either explicitly define or that are defined by default settings."1
+
+Nick's video also explained it well. To paraphrase, classes are like blueprints, and they group together code to represent objects.
+
+Since classes and objects are not the same, they are denoted differently. Classes use the Pascal case convention (each word starts with a capital letter). MDN has a great example on declaring a class with a constructor:2
+
+class Rectangle {
+  constructor(height, width) {
+    this.height = height;
+    this.width = width;
+  }
+}
+
+
+Objects follow camel case convention (each word starts with a capital letter, except for first word). Objects have many premade methods available, but you can create your own and call it using dot notation like below:3
+
+const myObject = {
+  firstName:"John",
+  lastName: "Doe",
+  fullName: function () {
+    return this.firstName + " " + this.lastName;
+  }
+}
+
+myObject.fullName();
+
+
+Classes and objects work together closely, but they are not the same thing. If all else fails, think of the class as the template, and the object as what you make with it.
+
+I know we learned about OOP in Java, but I really liked the email notification system example for the Inheritance video. The parent class at the core was a generic notification sender. We were able to utilize that class like a template and create 2 more classes for promotional and collections notifications. Instead of rewriting the same core methods, we were able to use the extends keyword to link the classes as parent/child. Then we added the funcitonality unique to each one. This was a great real-world example that clicked easily for me.   
+
+
+
+
+Sources
+1 https://www.ncl.ucar.edu/Document/HLUs/User_Guide/classes/classoview.shtml 
+2 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes
+3 https://www.w3schools.com/js/js_function_call.asp
