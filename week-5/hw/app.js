@@ -22,13 +22,13 @@ class Dept {
         this.clients = [];
     }
 
-    addClient(client) {
-        if (client instanceof Client) { //Makes sure entry is compatible with Client class
-            this.clients.push(client); //Adds entry to clients array 
-        } else {
-            throw new Error(`Please enter a valid client name, industry, address, contact name, phone number, and email address.`);
-        }
-    }
+    //addClient(client) {
+    //    if (client instanceof Client) { //Makes sure entry is compatible with Client class
+    //        this.clients.push(client); //Adds entry to clients array 
+    //    } else {
+    //        throw new Error(`Please enter a valid client name, industry, address, contact name, phone number, and email address.`);
+    //    }
+    //}
 
     describe() {
         return `${this.client} is assigned to ${this.Dept.name.length} departments.`;
@@ -87,9 +87,22 @@ class Menu {
         `) //Check to see if this works with view client added in!
     }
 
+    showClientMenu(clientInfo) {
+        return prompt(`
+        0) Back
+        1) Create client
+        2) View client
+        3) Delete client
+        -----------------------
+        ${clientInfo} 
+        `) //Check to see if this works with view client added in!
+    }
+
     createDept() {
+        console.log("1. ", this.depts);
         let name = prompt("Enter name of the new department:");
         this.depts.push(new Dept(name)); //Dept name is now new instance of Dept
+        console.log("2. ", this.depts);
     }
 
     viewDept() {
@@ -141,6 +154,7 @@ class Menu {
     }
 
     createClient() {
+        console.log("1. ", this.selectedDept.clients);
         let name = prompt("Enter the name for the new client:");
         let industry = prompt(`Enter the industry for ${name}:`);
         let address = prompt(`Enter the address for ${name}:`);
@@ -149,15 +163,15 @@ class Menu {
         let email = prompt(`Enter the email for ${contactName} at ${name}:`);
         //let dept = prompt(`Enter the name of the department you'd like to assign ${name} to`); //Check if it works using "dept". It should!
         this.selectedDept.clients.push(new Client(name, industry, address, contactName, phone, email /*dept*/)); //Make new client and push to clients array
+        console.log("2. ", this.selectedDept.clients);
     }
 
     viewClient() { //Flying blind here, so check if it works!
         let index = prompt("Enter the index of the client you'd like to view:");
         if (index > -1 && index < this.selectedDept.clients.length) { //Needs selectedDept before clients-have to get into dept first!
             this.selectedClient = this.selectedDept.clients[index];
-            let description = "Client Name: " + this.selectedClient.describe() /*this.selectedClient.name*/ + "\n"
-            //try this.selectedClient.describe()
-            
+            let description = "Client Name: " + this.selectedClient.describe() + "\n"
+            this.showClientMenu(description);
 
             //for (let i = 0; i < this.selectedDept.clients.length; i++) {
             //    description += i + ") " + this.selectedClient.name + "\n"; //Check to see if this prints client index and name
