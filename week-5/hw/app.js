@@ -16,9 +16,9 @@ class Client {
 }
 
 class Dept {
-    constructor(name, dev) {
+    constructor(name, /*dev*/) {
         this.name = name;
-        this.dev = dev;
+        /*this.dev = dev;*/
         this.clients = [];
     }
 
@@ -98,25 +98,29 @@ class Menu {
             this.selectedDept = this.depts[index];
             let description = "Department Name: " + this.selectedDept.name + "\n";
 
-            for (let i = 0; i < this.selectedDept.depts.length; i++) {
-                description += i + ") " + this.selectedDept.depts[i].name + "\n";
-                  //Ex. 0) Dev <new line>
-            }
+            //for (let i = 0; i < this.selectedDept.length; i++) {
+            //    description += i + ") " + this.selectedDept.depts[i].name + "\n";
+            //      //Ex. 0) Dev <new line>
+            //} //Don't need for loop if just printing out one dept
 
             let selection = this.showDeptMenu(description);
             switch (selection) {
                 case "1":
                     this.createClient();
+                    console.log("Successfully created a client.")
                     break;
                 case "2":
                     this.viewClient();
+                    console.log("View a client.")
                     break;
                 case "3":
                     this.deleteClient();
+                    console.log("Successfully deleted a client.")
                     break;
                 default:
-                    selection = 0; //Goes back one screen. TEST THIS and maybe add addClientNote and related methods later 
+                    selection = 0; //Goes back one screen. Maybe add addClientNote and related methods later 
             }
+            //selection = this.showDeptMenu(); //Supposed to show dept menu after every applicable action, but it overrides the other options, i.e. if I select 1 for create client, it shows the dept menu
         }
     }
 
@@ -138,24 +142,26 @@ class Menu {
 
     createClient() {
         let name = prompt("Enter the name for the new client:");
-        let industry = prompt(`Enter the industry for ${this.name}:`); //Check if this works
-        let address = prompt(`Enter the address for ${this.name}:`);
-        let contactName = prompt(`Enter the contact's name for ${this.name}:`);
-        let phone = prompt(`Enter the phone number for ${this.contactName} at ${this.name}:`);
-        let email = prompt(`Enter the email for ${this.contactName} at ${this.name}:`);
-        let dept = prompt("Enter the name of the department you'd like to assign this client to"); //Check if it works using "dept". It should!
-        this.selectedDept.clients.push(new Client(name, industry, address, contactName, phone, email, dept)); //Make new client and push to clients array
+        let industry = prompt(`Enter the industry for ${name}:`);
+        let address = prompt(`Enter the address for ${name}:`);
+        let contactName = prompt(`Enter the contact's name for ${name}:`);
+        let phone = prompt(`Enter the phone number for ${contactName} at ${name}:`);
+        let email = prompt(`Enter the email for ${contactName} at ${name}:`);
+        //let dept = prompt(`Enter the name of the department you'd like to assign ${name} to`); //Check if it works using "dept". It should!
+        this.selectedDept.clients.push(new Client(name, industry, address, contactName, phone, email /*dept*/)); //Make new client and push to clients array
     }
 
     viewClient() { //Flying blind here, so check if it works!
         let index = prompt("Enter the index of the client you'd like to view:");
-        if (index > -1 && index < this.clients.length) {
-            this.selectedClient = this.clients[index];
-            let description = "Client Name: " + this.selectedClient.name + "\n"
+        if (index > -1 && index < this.selectedDept.clients.length) { //Needs selectedDept before clients-have to get into dept first!
+            this.selectedClient = this.selectedDept.clients[index];
+            let description = "Client Name: " + this.selectedClient.describe() /*this.selectedClient.name*/ + "\n"
+            //try this.selectedClient.describe()
+            
 
-            for (let i = 0; i < this.selectedClient.clients.length; i++) {
-                description += i + ") " + this.selectedClient.clients[i].name + "\n";
-            }
+            //for (let i = 0; i < this.selectedDept.clients.length; i++) {
+            //    description += i + ") " + this.selectedClient.name + "\n"; //Check to see if this prints client index and name
+            //} //Don't need to print one client, only need for all
         }
     }
 
