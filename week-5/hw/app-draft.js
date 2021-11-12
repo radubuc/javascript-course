@@ -1,4 +1,4 @@
-//Client management menu driven app - final js file
+//Client management menu driven app
 
 class Client {
     constructor(name, industry, address, contactName, phone, email) {
@@ -16,9 +16,22 @@ class Client {
 }
 
 class Dept {
-    constructor(name) {
+    constructor(name, /*dev*/) {
         this.name = name;
+        /*this.dev = dev;*/
         this.clients = [];
+    }
+
+    //addClient(client) {
+    //    if (client instanceof Client) { //Makes sure entry is compatible with Client class
+    //        this.clients.push(client); //Adds entry to clients array 
+    //    } else {
+    //        throw new Error(`Please enter a valid client name, industry, address, contact name, phone number, and email address.`);
+    //    }
+    //}
+
+    describe() {
+        return `${this.client} is assigned to ${this.Dept.name.length} departments.`;
     }
 }
 
@@ -26,7 +39,7 @@ class Menu {
     constructor() {
         this.depts = [];
         this.selectedDept = null; //Needed to specify which department currently working on
-        this.selectedClient = null; //Needed to specify which client currently working on
+        this.selectedClient = null; //Is this need to use viewClient method?
     }
 
     start() {
@@ -51,9 +64,8 @@ class Menu {
             }
             selection = this.showMainMenu(); //Shows main menu after every applicable action
         }
-        alert("Program ended. Have a great day!"); //Show message when program terminates
+        alert("Program ended. Have a great day!") //Show message when program terminates
     }
-
     showMainMenu() {
         return prompt(`
             0) Exit
@@ -69,26 +81,28 @@ class Menu {
         0) Back
         1) Create client
         2) View client
-        3) View all clients
-        4) Delete client
+        3) Delete client
         -----------------------
         ${deptInfo} 
-        `);
+        `) //Check to see if this works with view client added in!
     }
 
     showClientMenu(clientInfo) {
         return prompt(`
         0) Back
+        1) Create client
+        2) View client
+        3) Delete client
         -----------------------
         ${clientInfo} 
-        `) 
+        `) //Check to see if this works with view client added in!
     }
 
     createDept() {
-        //console.log("1. ", this.depts); //console log for debugging purposes
+        console.log("1. ", this.depts);
         let name = prompt("Enter name of the new department:");
         this.depts.push(new Dept(name)); //Dept name is now new instance of Dept
-        //console.log("2. ", this.depts); //console log for debugging purposes
+        console.log("2. ", this.depts);
     }
 
     viewDept() {
@@ -97,27 +111,29 @@ class Menu {
             this.selectedDept = this.depts[index];
             let description = "Department Name: " + this.selectedDept.name + "\n";
 
+            //for (let i = 0; i < this.selectedDept.length; i++) {
+            //    description += i + ") " + this.selectedDept.depts[i].name + "\n";
+            //      //Ex. 0) Dev <new line>
+            //} //Don't need for loop if just printing out one dept
+
             let selection = this.showDeptMenu(description);
             switch (selection) {
                 case "1":
                     this.createClient();
-                    console.log("Successfully created a client.");
+                    console.log("Successfully created a client.")
                     break;
                 case "2":
-                    console.log("Viewing a client.");
                     this.viewClient();
+                    console.log("View a client.")
                     break;
                 case "3":
-                    console.log("Viewing all clients.");
-                    this.viewAllClients();
-                    break;
-                case "4":
                     this.deleteClient();
-                    console.log("Successfully deleted a client.");
+                    console.log("Successfully deleted a client.")
                     break;
                 default:
-                    selection = 0; //Goes back one screen. 
+                    selection = 0; //Goes back one screen. Maybe add addClientNote and related methods later 
             }
+            //selection = this.showDeptMenu(); //Supposed to show dept menu after every applicable action, but it overrides the other options, i.e. if I select 1 for create client, it shows the dept menu
         }
     }
 
@@ -138,7 +154,7 @@ class Menu {
     }
 
     createClient() {
-        //console.log("1. ", this.selectedDept.clients); //console log for debugging purposes
+        console.log("1. ", this.selectedDept.clients);
         let name = prompt("Enter the name for the new client:");
         let industry = prompt(`Enter the industry for ${name}:`);
         let address = prompt(`Enter the address for ${name}:`);
@@ -147,26 +163,21 @@ class Menu {
         let email = prompt(`Enter the email for ${contactName} at ${name}:`);
         //let dept = prompt(`Enter the name of the department you'd like to assign ${name} to`); //Check if it works using "dept". It should!
         this.selectedDept.clients.push(new Client(name, industry, address, contactName, phone, email /*dept*/)); //Make new client and push to clients array
-        //console.log("2. ", this.selectedDept.clients); //console log for debugging purposes
+        console.log("2. ", this.selectedDept.clients);
     }
 
-    viewClient() { 
+    viewClient() { //Flying blind here, so check if it works!
         let index = prompt("Enter the index of the client you'd like to view:");
         if (index > -1 && index < this.selectedDept.clients.length) { //Needs selectedDept before clients-have to get into dept first!
             this.selectedClient = this.selectedDept.clients[index];
             let description = "Client Name: " + this.selectedClient.describe() + "\n"
             this.showClientMenu(description);
-        }
-    }
 
-    viewAllClients() { //Check if this works!
-        let clientString = "";
-        for (let i = 0; i < this.selectedDept.clients.length; i++) { //Iterate through clients. or dept.clients or selectedDept.clients
-            clientString += i + ") " + this.selectedDept.clients[i].name + "\n"; //Get name and index for each client and add new line
+            //for (let i = 0; i < this.selectedDept.clients.length; i++) {
+            //    description += i + ") " + this.selectedClient.name + "\n"; //Check to see if this prints client index and name
+            //} //Don't need to print one client, only need for all
         }
-        alert(clientString); //Display all clients in dialog box
     }
-    
 
     deleteClient() {
         let index = prompt("Enter the index of the client you'd like to delete:");
@@ -174,6 +185,7 @@ class Menu {
             this.selectedDept.clients.splice(index, 1); //Removes 1 player from the index the user entered
         }
     }
+
     
 }
 
