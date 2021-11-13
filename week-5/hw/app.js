@@ -145,8 +145,7 @@ class Menu {
         let contactName = prompt(`Enter the contact's name for ${name}:`);
         let phone = prompt(`Enter the phone number for ${contactName} at ${name}:`);
         let email = prompt(`Enter the email for ${contactName} at ${name}:`);
-        //let dept = prompt(`Enter the name of the department you'd like to assign ${name} to`); //Check if it works using "dept". It should!
-        this.selectedDept.clients.push(new Client(name, industry, address, contactName, phone, email /*dept*/)); //Make new client and push to clients array
+        this.selectedDept.clients.push(new Client(name, industry, address, contactName, phone, email)); //Make new client and push to clients array
         //console.log("2. ", this.selectedDept.clients); //console log for debugging purposes
     }
 
