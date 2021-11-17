@@ -8,7 +8,7 @@
 
 //function hasStringAtEnd(a, b) {
 //    let shortest = '';
-//    let longetst = ''; //Still works even though this is spelled wrong?
+//    let longetst = ''; // *See notes below
 //    if (a.length < b.length) {
 //        shortest = a;
 //        longest = b;
@@ -23,6 +23,7 @@
 //    return shortest === endOfLongest;
 //}
 
+//*Still works even though misspelled because browser figured it out on its own (loosely typed language)
 
 
 //UNIT TESTS VIDEO

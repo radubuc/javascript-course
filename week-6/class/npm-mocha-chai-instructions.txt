@@ -1,0 +1,8 @@
+Use command prompt:
+node -version
+npm -v
+
+Go to folder where project is at:
+npm init
+npm install mocha
+npm install chai

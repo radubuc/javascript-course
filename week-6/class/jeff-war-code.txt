@@ -1,0 +1,58 @@
+class Player {
+    constructor(name) {
+        this.name = name; 
+        this.score = 0; 
+        this.hand = [];
+    }
+
+    //Used for MOCHA/CHAI testing
+    getPlayerName() {
+        return this.name;
+    }
+
+    // method to increment score based on winning 
+    incrementScore() {
+        this.score += 1;
+    }
+
+
+    // someway to compare score or get score 
+    // a name 
+    // a score 
+    // a hand of cards 
+    // a method to draw a card from the hand
+}
+
+class Card {
+    constructor(/*you can choose to use a constructor*/) {
+        this.value // Set up based on use of a constructor
+        // need to figure out how to get the number and suits assigned to each card
+        // (think about how you might do this in the Card class or Deck class)
+        // think about arrays of suits and numbers and inner and outer for-loops
+        // 4 types of each card ex. 2 of Hearts, 2 of Diamonds, 2 of Clubs, and 2 of Spades
+        // 4 suits 
+    }
+    // a value 
+    // a method to describe each card
+}
+
+class Deck {
+    // an array of cards 
+    // build out the nested for-loops in the Deck and create each card instance within that loop
+    // push each instance to array of cards 
+    // a method to shuffle the cards 
+    // a method to deal the cards to each player
+}
+
+class PlayGame { // this could be just a function or many functions
+    // start the game method
+    // play again or restart the game method 
+    // create 2 play instances 
+    // method to check which hand won 
+    // method to check which player one 
+}
+
+
+
+
+https://github.com/jeff1haupt/Week6
