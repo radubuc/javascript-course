@@ -52,7 +52,7 @@ class PlayGame { // this could be just a function or many functions
     // method to check which player one 
 }
 
-
+play.start();
 
 
 https://github.com/jeff1haupt/Week6
