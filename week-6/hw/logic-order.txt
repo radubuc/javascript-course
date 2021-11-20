@@ -1,0 +1,9 @@
+//Rough order of logic
+    //start(); //Taken care of in contstructor of PlayGame
+    //createPlayers(); //Taken care of in contstructor of PlayGame
+    //createDeck(); //Taken care of in contstructor of PlayGame
+    //shuffleDeck(); //Taken care of in Deck
+    //dealHand(); //Once for each player //Taken care of in contstructor of PlayGame
+    //drawCard(); //Call once for each player //Player class
+    //compareCards(); //Draw and compare cards are done 26x //incrementScore() gets called as part of compareCards()
+    //compareScore(); //Taken care of in PlayGame

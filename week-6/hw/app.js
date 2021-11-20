@@ -7,17 +7,12 @@ class Player {
         this.hand = []; //where cards are passed into
     }
 
-    dealHand() { //Pseudo code, maybe no push
-        player1.hand.push([hand]);
-        player2.hand.push([hand]);
-    }
+
 
     drawCard() { //Pseudo code
-        //player1.hand ?
-        //player2.hand ?
+        return this.hand.pop(); //Draw once per player
+        
     }
-
-    
 
     incrementScore() {
         this.score += 1;
@@ -25,6 +20,8 @@ class Player {
 
 
 }
+
+
 
 
 
@@ -42,89 +39,115 @@ class Card {
 
 class Deck {
     constructor() {
-        this.card = card; //Should this be an array instead?
-        this.deck = deck;
+        this.cards = [];
+        this.values = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
+        this.suits = ["clubs", "diamonds", "heart", "spade"];
     }
 
-    let value = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
-let suit = ["clubs", "diamonds", "heart", "spade"];
+    getWord(card) {
+        switch (card.value) { //Switch is for cpu, not what prints outs   Something about case card.value1?
+            case 2:
+                return "Two";
+                break;
 
-switch (card) { //Switch is for cpu, not what prints outs   Something about case card.value1?
-    case 2:
-        return "Two";
-        break;
+            case 3:
+                return "Three";
+                break;
 
-    case 3:
-        return "Three";
-        break;
+            case 4:
+                return "Four";
+                break;
 
-    case 4:
-        return "Four";
-        break;
+            case 5:
+                return "Five";
+                break;
 
-    case 5:
-        return "Five";
-        break;
+            case 6:
+                return "Six";
+                break;
 
-    case 6:
-        return "Six";
-        break;
+            case 7:
+                return "Seven";
+                break;
 
-    case 7:
-        return "Seven";
-        break;
+            case 8:
+                return "Eight";
+                break;
 
-    case 8:
-        return "Eight";
-        break;
+            case 9:
+                return "Nine";
+                break;
 
-    case 9:
-        return "Nine";
-        break;
+            case 10:
+                return "Ten";
+                break;
 
-    case 10:
-        return "Ten";
-        break;
+            case 11:
+                return "Jack";
+                break;
 
-    case 11:
-        return "Jack";
-        break;
+            case 12:
+                return "Queen";
+                break;
 
-    case 12:
-        return "Queen";
-        break;
+            case 13:
+                return "King";
+                break;
 
-    case 13:
-        return "King";
-        break;
+            case 14:
+                return "Ace";
+                break;
 
-    case 14:
-        return "Ace";
-        break;
+        }
+    }
 
-}
-
-
-    createDeck() {
+    shuffleDeck() { //check math functions
+        // create a copy of this.cards
+        // loop that gets a random index of this.cards
+        // push value from random index to shuffledCards array
+        this.cards = shuffledCards;
 
     }
 
-    shuffleDeck() {
-
+    dealHand(player1, player2) {
+        //while cars still left in deck
+        // player1.push(card);
+        // player2.push(nextCard);
     }
 }
 
 class PlayGame {
     //Rough order of logic
-    //start();
-    //createPlayers();
-    //createDeck();
-    //shuffleDeck();
-    //dealHand(); //Once for each player
-    //drawCard(); //Call once for each player
+    //start(); //Taken care of in contstructor of PlayGame
+    //createPlayers(); //Taken care of in contstructor of PlayGame
+    //createDeck(); //Taken care of in contstructor of PlayGame
+    //shuffleDeck(); //Taken care of in Deck
+    //dealHand(); //Passing in both players or once for each. Both is easier //Taken care of in contstructor of PlayGame
+    //drawCard(); //Call once for each player //Player class
     //compareCards(); //Draw and compare cards are done 26x //incrementScore() gets called as part of compareCards()
-    //compareScore();
-    //findWinner();
+    //compareScore(); //Taken care of in PlayGame
+
+    constructor() {
+        this.player1 = new Player(prompt("Enter the name of player 1."));
+        this.player2 = new Player(prompt("Enter the name of player 2."));
+        this.deck = new Deck();
+    }
+
+    start() {
+        this.deck.shuffle();
+        this.deck.dealHand(player1, player2);
+        this.compareCards(player1.drawCard(), player2.drawCard())
+    }
+
+    compareCards(card1, card2) {
+        if (card1.value > card2.value) {
+            this.player1.incrementScore();
+        } else if (card2.value > card1.value) {
+            this.player2.incrementScore();
+        } else {
+            console.log("Tie!");
+        }
+    }
 
     compareScore() {
         if (player1.score > player2.score) {
@@ -136,30 +159,9 @@ class PlayGame {
         }
     }
 
-
-    //findWinnerOfRound() { //Pseudo code - how to find player total for each round?
-    //    if (player1.draw > player2.draw) {
-    //        return "Player 1 wins the round!";
-    //    } else if (player2.draw > player1.draw) {
-    //        return "Player 2 wins the round!";
-    //    } else {
-    //        return "It's a tie!";
-    //    }
-    //}
-
-    findWinner() { //Pseudo code - how to find player total for whole game?
-        if (player1.total > player2.total) {
-            return "Player 1 wins the game!";
-        } else if (player2.total > player1.total) {
-            return "Player 2 wins the game!";
-        } else {
-            return "It's a tied game!";
-        }
-    }
 }
 
-const player1 = new Player(prompt("Enter the name of player 1."));
 
-/*play.start();*/
+//play.start();
 
 //DON'T FORGET UNIT TESTING!
