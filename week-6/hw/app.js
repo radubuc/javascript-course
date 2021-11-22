@@ -7,8 +7,6 @@ class Player {
         this.hand = []; //where cards are passed into
     }
 
-
-
     drawCard() { //Pseudo code
         return this.hand.pop(); //Draw once per player
         
@@ -17,13 +15,7 @@ class Player {
     incrementScore() {
         this.score += 1;
     }
-
-
 }
-
-
-
-
 
 class Card {
     constructor(value, suit) {
@@ -41,11 +33,11 @@ class Deck {
     constructor() {
         this.cards = [];
         this.values = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
-        this.suits = ["clubs", "diamonds", "heart", "spade"];
+        this.suits = ["Clubs", "Diamonds", "Hearts", "Spades"];
     }
 
-    getWord(card) {
-        switch (card.value) { //Switch is for cpu, not what prints outs   Something about case card.value1?
+    getValue(card) {
+        switch (card.value) {
             case 2:
                 return "Two";
                 break;
@@ -101,7 +93,16 @@ class Deck {
         }
     }
 
-    shuffleDeck() { //check math functions
+    createDeck() { //Do I have to call getValue() method?
+        for (let s = 0; s < suits.length; s++) {
+            for (let v = 0; v < values.length; v++) {
+                this.cards.push(new Card(j, ` of ${this.suits[i]}`));
+            }
+        }
+    }
+    
+
+    shuffleDeck() { //check math functions floor and random
         // create a copy of this.cards
         // loop that gets a random index of this.cards
         // push value from random index to shuffledCards array
@@ -113,6 +114,11 @@ class Deck {
         //while cars still left in deck
         // player1.push(card);
         // player2.push(nextCard);
+
+        for (i = 0; i < deck.cards.length; i++) { //check middle term
+             player1.push(card);
+             player2.push(nextCard);
+        }
     }
 }
 
@@ -122,7 +128,7 @@ class PlayGame {
     //createPlayers(); //Taken care of in contstructor of PlayGame
     //createDeck(); //Taken care of in contstructor of PlayGame
     //shuffleDeck(); //Taken care of in Deck
-    //dealHand(); //Passing in both players or once for each. Both is easier //Taken care of in contstructor of PlayGame
+    //dealHand(); //Passing in both players or once for each. Both is easier //Once for each player-26 cards each, 52 total  //Taken care of in contstructor of PlayGame
     //drawCard(); //Call once for each player //Player class
     //compareCards(); //Draw and compare cards are done 26x //incrementScore() gets called as part of compareCards()
     //compareScore(); //Taken care of in PlayGame
@@ -136,7 +142,7 @@ class PlayGame {
     start() {
         this.deck.shuffle();
         this.deck.dealHand(player1, player2);
-        this.compareCards(player1.drawCard(), player2.drawCard())
+        this.compareCards(player1.drawCard(), player2.drawCard());
     }
 
     compareCards(card1, card2) {
@@ -145,23 +151,23 @@ class PlayGame {
         } else if (card2.value > card1.value) {
             this.player2.incrementScore();
         } else {
-            console.log("Tie!");
+            alert("Tie");
         }
     }
 
     compareScore() {
         if (player1.score > player2.score) {
-            /*player1.incrementScore();*/
+            alert("Player 1 wins!");
         } else if (player2.score > player1.score) {
-            /*player2.incrementScore();*/
+            alert("Player 2 wins!");
         } else {
-            return "Tie!";
+            alert("It's a tie!");
         }
     }
 
 }
 
 
-//play.start();
+play.start(); //Why can't I start?
 
 //DON'T FORGET UNIT TESTING!
