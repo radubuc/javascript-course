@@ -93,10 +93,10 @@ class Deck {
         }
     }
 
-    createDeck() { //Do I have to call getValue() method?
+    createDeck() { 
         for (let s = 0; s < suits.length; s++) {
             for (let v = 0; v < values.length; v++) {
-                this.cards.push(new Card(j, ` of ${this.suits[i]}`));
+                this.cards.push(new Card(getValue(v), ` of ${this.suits[i]}`)); //Do I have to call getValue() method?
             }
         }
     }
@@ -106,7 +106,17 @@ class Deck {
         // create a copy of this.cards
         // loop that gets a random index of this.cards
         // push value from random index to shuffledCards array
+        // this.cards = shuffledCards;
+
         this.cards = shuffledCards;
+        let c = 52;
+        let i;
+
+        while (c) {
+            c = Math.floor(Math.random() * c--);
+            [this.cards[c], this.cards[i]] = [this.cards[i], this.cards[c]];
+        }
+        return shuffledCards.push(new Deck);
 
     }
 
@@ -116,19 +126,24 @@ class Deck {
         // player2.push(nextCard);
 
         for (i = 0; i < deck.cards.length; i++) { //check middle term
-             player1.push(card);
-             player2.push(nextCard);
+            player1.hand.push(this.cards.pop());
+            player2.hand.push(this.cards.pop());
         }
+
+        //while (i < deck.cards.length) {
+        //    player1.push(card);
+        //    player2.push(nextCard);
+        //}
     }
 }
 
 class PlayGame {
     //Rough order of logic
-    //start(); //Taken care of in contstructor of PlayGame
-    //createPlayers(); //Taken care of in contstructor of PlayGame
-    //createDeck(); //Taken care of in contstructor of PlayGame
+    //start(); //Taken care of in constructor of PlayGame
+    //createPlayers(); //Taken care of in constructor of PlayGame
+    //createDeck(); //Taken care of in constructor of PlayGame
     //shuffleDeck(); //Taken care of in Deck
-    //dealHand(); //Passing in both players or once for each. Both is easier //Once for each player-26 cards each, 52 total  //Taken care of in contstructor of PlayGame
+    //dealHand(); //Passing in both players or once for each. Both is easier //Once for each player-26 cards each, 52 total  //Taken care of in constructor of PlayGame
     //drawCard(); //Call once for each player //Player class
     //compareCards(); //Draw and compare cards are done 26x //incrementScore() gets called as part of compareCards()
     //compareScore(); //Taken care of in PlayGame
