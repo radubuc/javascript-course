@@ -7,7 +7,7 @@ class Player {
         this.hand = []; //where cards are passed into
     }
 
-    drawCard() { //Pseudo code
+    drawCard() { //This should work, test when able
         return this.hand.pop(); //Draw once per player
         
     }
@@ -37,7 +37,7 @@ class Deck {
     }
 
     getValue(card) {
-        switch (card.value) {
+        switch (card.value) { //Does card need to be defined?
             case 2:
                 return "Two";
                 break;
@@ -93,10 +93,11 @@ class Deck {
         }
     }
 
-    createDeck() { 
-        for (let s = 0; s < suits.length; s++) {
-            for (let v = 0; v < values.length; v++) {
-                this.cards.push(new Card(getValue(v), ` of ${this.suits[i]}`)); //Do I have to call getValue() method?
+    createDeck() {
+        for (let s = 0; s < this.suits.length; s++) {
+            for (let v = 0; v < this.values.length; v++) {
+                return this.cards.push(new Card(this.getValue(v), ` of ${this.suits[s]}`));
+                //Do I have to call getValue() method? Yes to activate switch case
             }
         }
     }
@@ -108,7 +109,8 @@ class Deck {
         // push value from random index to shuffledCards array
         // this.cards = shuffledCards;
 
-        this.cards = shuffledCards;
+        //this.cards = shuffledCards;
+        this.shuffledCards = [];
         let c = 52;
         let i;
 
@@ -116,19 +118,22 @@ class Deck {
             c = Math.floor(Math.random() * c--);
             [this.cards[c], this.cards[i]] = [this.cards[i], this.cards[c]];
         }
-        return shuffledCards.push(new Deck);
+        return this.shuffledCards.push(new Deck);
 
     }
 
     dealHand(player1, player2) {
-        //while cars still left in deck
+        //Take deck that was just shuffled and deal 26 cards to each player
+
+        //while cards still left in deck
         // player1.push(card);
         // player2.push(nextCard);
 
-        for (i = 0; i < deck.cards.length; i++) { //check middle term
-            player1.hand.push(this.cards.pop());
-            player2.hand.push(this.cards.pop());
-        }
+        //let hand = new Hand; //Didn't work
+        for (let i = 0; i < this.shuffledCards.length; i++) { 
+            return this.player1.hand.push(this.cards.pop()); //Says hand is undefined
+            return this.player2.hand.push(this.cards.pop());
+        } //Am I appropriately taking in the new deck I made on 122?
 
         //while (i < deck.cards.length) {
         //    player1.push(card);
@@ -155,13 +160,14 @@ class PlayGame {
     }
 
     start() {
-        this.deck.shuffle();
-        this.deck.dealHand(player1, player2);
+        this.deck.createDeck();
+        this.deck.shuffleDeck();
+        this.deck.dealHand(this.player1, this.player2); 
         this.compareCards(player1.drawCard(), player2.drawCard());
     }
 
     compareCards(card1, card2) {
-        if (card1.value > card2.value) {
+        if (card1.value > card2.value) { //Must define card1 and card2
             this.player1.incrementScore();
         } else if (card2.value > card1.value) {
             this.player2.incrementScore();
@@ -172,9 +178,11 @@ class PlayGame {
 
     compareScore() {
         if (player1.score > player2.score) {
-            alert("Player 1 wins!");
+            //alert("Player 1 wins!");
+            alert(`${player1} wins!`);
         } else if (player2.score > player1.score) {
-            alert("Player 2 wins!");
+            //alert("Player 2 wins!");
+            alert(`${player2} wins!`);
         } else {
             alert("It's a tie!");
         }
@@ -182,7 +190,10 @@ class PlayGame {
 
 }
 
-
-play.start(); //Why can't I start?
+let play = new PlayGame;
+play.start();
 
 //DON'T FORGET UNIT TESTING!
+
+//Notes
+//Try to get each player's name to print in prompt. I already have prompt set up
