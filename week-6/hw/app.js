@@ -130,9 +130,9 @@ class Deck {
         // player2.push(nextCard);
 
         //let hand = new Hand; //Didn't work
-        for (let i = 0; i < this.shuffledCards.length; i++) { 
-            return this.player1.hand.push(this.cards.pop()); //Says hand is undefined
-            return this.player2.hand.push(this.cards.pop());
+        for (let i = 0; i < 26/*this.shuffledCards.length*/; i++) { 
+            this.player1.hand.push(this.cards.pop()); //Says hand is undefined
+            this.player2.hand.push(this.cards.pop());
         } //Am I appropriately taking in the new deck I made on 122?
 
         //while (i < deck.cards.length) {
