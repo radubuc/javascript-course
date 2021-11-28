@@ -1,4 +1,4 @@
-// WAR
+// WAR - WEEK 6 PROJECT
 
 class Player {
     constructor(name) {
@@ -8,7 +8,9 @@ class Player {
     }
 
     drawCard() { //This should work, test when able
-        return this.hand.pop(); //Draw once per player
+        //for (let i = 0; i < 26; i++) {
+            return this.hand.pop(); //Draw once per player
+        //}
         
     }
 
@@ -23,9 +25,9 @@ class Card {
         this.suit = suit;
     }
 
-    //Value map?
-
-    
+    getValue() {
+        return this.value;
+    }
 
 }
 
@@ -36,8 +38,8 @@ class Deck {
         this.suits = ["Clubs", "Diamonds", "Hearts", "Spades"];
     }
 
-    getValue(card) {
-        switch (card.value) { //Does card need to be defined?
+    switchValue(card) {
+        switch (card) {
             case 2:
                 return "Two";
                 break;
@@ -95,32 +97,34 @@ class Deck {
 
     createDeck() {
         for (let s = 0; s < this.suits.length; s++) {
-            for (let v = 0; v < this.values.length; v++) {
-                return this.cards.push(new Card(this.getValue(v), ` of ${this.suits[s]}`));
-                //Do I have to call getValue() method? Yes to activate switch case
+            for (let v = 2; v < this.values.length + 2; v++) {
+                this.cards.push(new Card(this.switchValue(v), ` of ${this.suits[s]}`));
             }
         }
     }
-    
 
-    shuffleDeck() { //check math functions floor and random
-        // create a copy of this.cards
-        // loop that gets a random index of this.cards
-        // push value from random index to shuffledCards array
-        // this.cards = shuffledCards;
-
-        //this.cards = shuffledCards;
-        this.shuffledCards = [];
-        let c = 52;
-        let i;
-
-        while (c) {
-            c = Math.floor(Math.random() * c--);
-            [this.cards[c], this.cards[i]] = [this.cards[i], this.cards[c]];
-        }
-        return this.shuffledCards.push(new Deck);
-
+    shuffleDeck() {
+        this.cards = this.cards.sort(() => Math.random() - 0.5); //Not as accurate on large scale, but good enough here
     }
+
+    //shuffleDeck() { //check math functions floor and random
+    //    // create a copy of this.cards
+    //    // loop that gets a random index of this.cards
+    //    // push value from random index to shuffledCards array
+    //    // this.cards = shuffledCards;
+
+    //    //this.cards = shuffledCards;
+    //    const { cards } = this;
+    //    let c = 52;
+    //    let i;
+
+    //    while (c) {
+    //        c = Math.floor(Math.random() * c--);
+    //        [cards[c], cards[i]] = [cards[i], cards[c]];
+    //    }
+    //    console.log(this);
+    //    return this;
+    //}
 
     dealHand(player1, player2) {
         //Take deck that was just shuffled and deal 26 cards to each player
@@ -129,16 +133,13 @@ class Deck {
         // player1.push(card);
         // player2.push(nextCard);
 
-        //let hand = new Hand; //Didn't work
-        for (let i = 0; i < 26/*this.shuffledCards.length*/; i++) { 
-            this.player1.hand.push(this.cards.pop()); //Says hand is undefined
-            this.player2.hand.push(this.cards.pop());
-        } //Am I appropriately taking in the new deck I made on 122?
-
-        //while (i < deck.cards.length) {
-        //    player1.push(card);
-        //    player2.push(nextCard);
-        //}
+        //let deckLength = this.cards.length;
+        for (let i = 0; i < 26; i++) {
+            player1.hand.push(this.cards.pop());
+            player2.hand.push(this.cards.pop());
+        } 
+        //console.log(player1.hand); //Why is this relient on my first compareCards() method?
+        //console.log(player2.hand);
     }
 }
 
@@ -146,7 +147,7 @@ class PlayGame {
     //Rough order of logic
     //start(); //Taken care of in constructor of PlayGame
     //createPlayers(); //Taken care of in constructor of PlayGame
-    //createDeck(); //Taken care of in constructor of PlayGame
+    //createDeck(); //Taken care of in constructor of PlayGame and in Deck class
     //shuffleDeck(); //Taken care of in Deck
     //dealHand(); //Passing in both players or once for each. Both is easier //Once for each player-26 cards each, 52 total  //Taken care of in constructor of PlayGame
     //drawCard(); //Call once for each player //Player class
@@ -156,33 +157,89 @@ class PlayGame {
     constructor() {
         this.player1 = new Player(prompt("Enter the name of player 1."));
         this.player2 = new Player(prompt("Enter the name of player 2."));
-        this.deck = new Deck();
+        //this.deck = new Deck();
     }
 
     start() {
-        this.deck.createDeck();
-        this.deck.shuffleDeck();
-        this.deck.dealHand(this.player1, this.player2); 
-        this.compareCards(player1.drawCard(), player2.drawCard());
+        const deck = new Deck();
+        deck.createDeck();
+        deck.shuffleDeck();
+        deck.dealHand(this.player1, this.player2);
+        //this.compareCards(this.player1.drawCard(), this.player2.drawCard());
+        this.compareCards(this.player1, this.player2);
+        this.compareScore(this.player1, this.player2);
     }
 
-    compareCards(card1, card2) {
-        if (card1.value > card2.value) { //Must define card1 and card2
-            this.player1.incrementScore();
-        } else if (card2.value > card1.value) {
-            this.player2.incrementScore();
-        } else {
-            alert("Tie");
-        }
+    //Attempt 3
+    compareCards() { //ALL ROUNDS END IN TIE - LOGIC ERROR
+        for (let r = 0; r < 26; r++) {
+            let card1 = this.player1.drawCard();
+            let card2 = this.player2.drawCard();
+
+            console.log(this.player1.drawCard());
+            console.log(this.player2.drawCard());
+
+            if (card1 > card2) {
+                this.player1.incrementScore();
+            } else if (card2 > card1) {
+                this.player2.incrementScore();
+            } else {
+                console.log("Tie");
+            }
+
+            //if (card1.getValue() > card2.getValue()) {
+            //    this.player1.incrementScore();
+            //} else if (card2.getValue() > card1.getValue()) {
+            //    this.player2.incrementScore();
+            //} else {
+            //    console.log("Tie");
+            //}
+        } 
     }
+
+    //Attempt 1
+    //compareCards(card1, card2) { //ALL ROUNDS END IN TIE - LOGIC ERROR
+    //    for (let r = 0; r < 26; r++) {
+    //        console.log(this.player1.drawCard());
+    //        console.log(this.player2.drawCard());
+
+    //        if (card1 > card2) {
+    //            this.player1.incrementScore();
+    //        } else if (card2 > card1) {
+    //            this.player2.incrementScore();
+    //        } else {
+    //            console.log("Tie");
+    //        }
+    //    }
+    //}
+
+    //Attempt 2
+    //compareCards(card1, card2) {
+    //    for (let r = 0; r < 26; r++) {
+    //        let card1 = this.player1.drawCard();
+    //        let card2 = this.player2.drawCard();
+
+    //        console.log(this.player1.drawCard());
+    //        console.log(this.player2.drawCard());
+
+    //        if (card1 > card2) {
+    //            this.player1.incrementScore();
+    //            //console.log(this.player1.score);
+    //        } else if (card2 > card1) {
+    //            this.player2.incrementScore();
+    //        } else {
+    //            console.log("Tie");
+    //        }
+    //    }
+    //}
 
     compareScore() {
-        if (player1.score > player2.score) {
+        if (this.player1.score > this.player2.score) {
             //alert("Player 1 wins!");
-            alert(`${player1} wins!`);
-        } else if (player2.score > player1.score) {
+            alert(`${this.player1} wins!`);
+        } else if (this.player2.score > this.player1.score) {
             //alert("Player 2 wins!");
-            alert(`${player2} wins!`);
+            alert(`${this.player2} wins!`);
         } else {
             alert("It's a tie!");
         }
@@ -196,4 +253,4 @@ play.start();
 //DON'T FORGET UNIT TESTING!
 
 //Notes
-//Try to get each player's name to print in prompt. I already have prompt set up
+//Try to get each player's name to print in alert. I already have prompt set up

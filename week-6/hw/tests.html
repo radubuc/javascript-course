@@ -1,0 +1,24 @@
+﻿<!--MOCHA HTML FILE FOR TESTING-->
+
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Unit Testing</title>
+    <link rel="stylesheet" href="node_modules/mocha/mocha.css">
+</head>
+<body>
+    <div id="mocha">
+        <p><a href=".">Index</a></p>
+    </div>
+    <div id="messages"></div>
+    <div id="fixtures"></div>
+    <script src="node_modules/mocha/mocha.js"></script>
+    <script src="node_modules/chai/chai.js"></script>
+    <script src="app.js"></script>
+    <script>mocha.setup('bdd')</script>
+    <script src="apptest.js"></script>
+    <script>mocha.run();</script>
+</body>
+</html>

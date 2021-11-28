@@ -1,5 +1,4 @@
 // UNIT TESTING CODE FROM UNIT TEST VIDEO
-//I have not downloaded Mocha or Chai yet
 
 var expect = chai.expect;
 
