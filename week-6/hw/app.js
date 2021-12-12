@@ -33,12 +33,12 @@ class Card {
 
 class Deck {
     constructor() {
-        this.cards = [];
+        this.cards = []; //Does deck understand what card is?
         this.values = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
         this.suits = ["Clubs", "Diamonds", "Hearts", "Spades"];
     }
 
-    switchValue(card) {
+    switchValue(card) { //Is switch case being read properly?
         switch (card) {
             case 2:
                 return "Two";
@@ -98,7 +98,7 @@ class Deck {
     createDeck() {
         for (let s = 0; s < this.suits.length; s++) {
             for (let v = 2; v < this.values.length + 2; v++) {
-                this.cards.push(new Card(this.switchValue(v), ` of ${this.suits[s]}`));
+                this.cards.push(new Card(this.switchValue(v), ` of ${this.suits[s]}`)); //Do I need values array instead of switch value?
             }
         }
     }
@@ -138,8 +138,8 @@ class Deck {
             player1.hand.push(this.cards.pop());
             player2.hand.push(this.cards.pop());
         } 
-        //console.log(player1.hand); //Why is this relient on my first compareCards() method?
-        //console.log(player2.hand);
+        console.log(player1.hand); //Why is this relient on my first compareCards() method?
+        console.log(player2.hand);
     }
 }
 
@@ -172,7 +172,7 @@ class PlayGame {
 
     //Attempt 3
     compareCards() { //ALL ROUNDS END IN TIE - LOGIC ERROR
-        for (let r = 0; r < 26; r++) {
+        for (let r = 0; r < 52; r++) {
             let card1 = this.player1.drawCard();
             let card2 = this.player2.drawCard();
 
