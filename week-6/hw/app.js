@@ -145,6 +145,7 @@ class PlayGame {
     }
 
     start() {
+        console.log("Let's play War!");
         const deck = new Deck();
         deck.createDeck();
         deck.shuffleDeck();
