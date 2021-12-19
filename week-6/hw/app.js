@@ -178,10 +178,13 @@ class PlayGame {
 
     compareScore() {
         if (this.player1.score > this.player2.score) {
+            console.log(`${this.player1.name} wins! - Final score: ${this.player1.score} to ${this.player2.score}`);
             alert(`${this.player1.name} wins! - Final score: ${this.player1.score} to ${this.player2.score}`);
         } else if (this.player2.score > this.player1.score) {
+            console.log(`${this.player2.name} wins! - Final score: ${this.player2.score} to ${this.player1.score}`);
             alert(`${this.player2.name} wins! - Final score: ${this.player2.score} to ${this.player1.score}`);
         } else {
+            console.log(`${this.player1.name} and ${this.player2.name} tie!`);
             alert(`${this.player1.name} and ${this.player2.name} tie!`);
         }
     }
