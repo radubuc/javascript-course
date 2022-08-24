@@ -1,0 +1,74 @@
+Q: Create a variable named age and set it equal to 25.
+
+MY ANSWER:
+
+var age = 25;
+
+INSTRUCTOR'S ANSWER: Same as mine.
+
+_____________________________________________
+
+Q: Create a variable called fullName and set the value to 'Johnny Appleseed'.
+
+MY ANSWER:
+
+var fullName = "Johnny Appleseed";
+
+INSTRUCTOR'S ANSWER: Same as mine.
+
+_____________________________________________
+
+Q: Create a variable called isHungry and assign the value true. Then, declare a second variable called craving and assign the value 'italian food'.
+
+MY ANSWER:
+
+var isHungry = true;
+var craving = "italian food";
+
+INSTRUCTOR'S ANSWER: Same as mine.
+
+_____________________________________________
+
+Q: Reassign the given variable favoriteGame to another game of your choice.
+
+MY ANSWER:
+
+var favoriteGame = "Uno";
+
+INSTRUCTOR'S ANSWER:
+
+favoriteGame = 'Battleship';
+
+*Note var or let keywords not needed since variable was already defined in starter code included in question.
+
+_____________________________________________
+
+Q: Create a variable called luckyNumber and set it equal to your lucky number.
+
+MY ANSWER:
+
+var luckyNumber = 5;
+
+INSTRUCTOR'S ANSWER:
+
+var luckyNumber = 17;
+
+_____________________________________________
+
+Q: Create a variable called computerIsOn and set it equal to true.
+
+MY ANSWER:
+
+var computerIsOn = true;
+
+INSTRUCTOR'S ANSWER: Same as mine.
+
+_____________________________________________
+
+Q: Reassign the given variable currentYear to the current year.
+
+MY ANSWER:
+
+
+
+INSTRUCTOR'S ANSWER: Same as mine.
