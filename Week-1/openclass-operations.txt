@@ -1,0 +1,87 @@
+Q: Using console.log(), compare num1 and num2 with the comparison operator (==).
+
+My ANSWER: 
+
+console.log(num1 == num2);
+
+INSTRUCTOR ANSWER: Same as mine.
+
+____________________________________________________________________
+
+Q: Using console.log(), print the product of num1 and num2.
+
+MY ANSWER:
+
+console.log(num1 * num2);
+
+INSTRUCTOR ANSWER: Same as mine.
+
+____________________________________________________________________
+
+Q: Using console.log(), print the quotient of num1 over num2.
+
+MY ANSWER: 
+
+console.log(num1/num2)
+
+INSTRUCTOR ANSWER: Same as mine.
+
+____________________________________________________________________
+
+Q: Using console.log(), print num1 is less than num2.
+
+MY ANSWER:
+
+console.log(num1 < num2);
+
+INSTRUCTOR ANSWER: Same as mine.
+
+____________________________________________________________________
+
+Q: Using console.log(), print num1 is less than num2.
+
+MY ANSWER:
+
+console.log(num1 < num2);
+
+INSTRUCTOR ANSWER: Same as mine.
+
+____________________________________________________________________
+
+Q: Using console.log(), print num1 is greater than or equal to num2.
+
+MY ANSWER:
+
+console.log(num1 >= num2);
+
+INSTRUCTOR ANSWER: Same as mine.
+
+____________________________________________________________________
+
+Q: Using console.log(), print the subtraction of num2 from num1 and multiply the result by 16.
+
+MY ANSWER:
+
+console.log((num1 - num2) * 16);
+
+INSTRUCTOR ANSWER: Same as mine.
+
+____________________________________________________________________
+
+Q: Using console.log(), print the addition of num1 and num2 then divide by 5.
+
+MY ANSWER:
+
+console.log((num1 + num2) / 5);
+
+INSTRUCTOR ANSWER: Same as mine.
+
+____________________________________________________________________
+
+Q: Using console.log(), print the subtraction of num1 from num2.
+
+MY ANSWER:
+
+console.log(num2 - num1)
+
+INSTRUCTOR ANSWER: Same as mine.
