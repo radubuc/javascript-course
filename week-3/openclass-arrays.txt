@@ -1,24 +1,73 @@
-Given the array, studentList, add the name "Mary".
+Q: Write a function called reverseArray that accepts an array as an argument. Within the function, reverse the array. Return the reversed array.
+
+MY ANSWER: Marked as correct because it passed all 7 test cases, but gives "Empty destructuring" warning in code editor.
+*Note: Don't need [] inside () because array will be set to a variable. And I can use "array" instead of "input" that was provided in console log for testing purposes.
+
+function reverseArray([]) {
+    return input.reverse();
+}
+
+INSTRUCTOR ANSWER:
+
+function reverseArray(array){
+    return array.reverse();
+}
+
+______________________________________________________________
+
+
+Q: Given the array, studentList, add the name "Mary". Do not edit the array in its current state. You must edit using a method of the Array object.
 
 let studentList = ["Allen", "Jessica", "Eddie", "Sarah"]
-//write your code here
+
+MY ANSWER:
+
 studentList.push("Mary");
 
+INSTRUCTOR ANSWER: Same as mine.
 
-Create an array called groceryList and add "granola", "milk", and "eggs."
+______________________________________________________________
+
+Q: Write a function called joinArrays that accepts two arrays as arguments. Join the two arrays and return the new array. You must use a method of the Array object.
+
+MY ANSWER:
+
+function joinArrays(array1, array2) {
+    return array1.concat(array2);
+}
+
+
+INSTRUCTOR ANSWER: 
+*Note: The difference is mine doesn't set the concatenated arrays to a new variable. Produces same results, but variable may be preferential in some cases if the concatenated array will need to be access later.
+
+function joinArrays(array1, array2){
+    let newArray = array1.concat(array2);
+    return newArray;
+}
+
+______________________________________________________________
+
+Q: Create an array called groceryList and add "granola", "milk", and "eggs."
+
+MY ANSWER:
+
+let groceryList = ["granola", "milk", "eggs"];
+
+
+INSTRUCTOR ANSWER: Same as mine.
+
+*Note: If you want to dynamically add more items to groceryList, set groceryList to blank array and push items individually:
 
 let groceryList = [];
 groceryList.push('granola');
 groceryList.push('milk');
 groceryList.push('eggs');
 
-OR
+______________________________________________________________
 
-let groceryList = ["granola", "milk", "eggs"];
+EXTRA QUESTIONS THAT MAY COME UP IF YOU DON'T GET THEM ALL RIGHT ON THE FIRST TRY
 
-
-Write a function called sortArray that accepts an array as an argument.
-Within the function, sort the array alphabetically or numerically. Return the sorted array.
+Q: Write a function called sortArray that accepts an array as an argument. Within the function, sort the array alphabetically or numerically. Return the sorted array.
 You must use a method of the Array object.
 
 let array = [];
@@ -34,9 +83,9 @@ function sortArray(array){
     return array.sort();
 }
 
+______________________________________________________________
 
-
-Given the array, studentList, remove the name "Eddie".
+Q: Given the array, studentList, remove the name "Eddie".
 
 let removedStudents = studentList.splice(2, 1);
 (Console.log already in given code)
