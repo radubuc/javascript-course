@@ -85,3 +85,14 @@ MY ANSWER:
 console.log(num2 - num1)
 
 INSTRUCTOR ANSWER: Same as mine.
+
+____________________________________________________________________
+
+Q: Using console.log(), print the product of num1 and num2 then add 10.
+
+MY ANSWER:
+
+console.log((num1 * num2) + 10);
+
+INSTRUCTOR ANSWER: Same as mine.
+
