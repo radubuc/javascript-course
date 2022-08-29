@@ -1,7 +1,7 @@
-Write a function called loopUntilX that takes one parameter.
-Within the function, write a loop that loops as many times as the passed in value, starting at 0.
-Within the loop, print the number of iterations to the console.
-Once the loop is done, return true.
+Q: Write a function called loopUntilX that takes one parameter. Within the function, write a loop that loops as many times as the passed in value, starting at 0.
+Within the loop, print the number of iterations to the console. Once the loop is done, return true.
+
+MY ANSWER:
 
 function loopUntilX(x){
     for(i = 0; i < x; i++){
@@ -9,9 +9,14 @@ function loopUntilX(x){
     } return true;
 }
 
+INSTRUCTOR ANSWER: Same as mine.
 
-Create a function called findCircumference that returns the circumference of a circle if given the radius.
+______________________________________________________
+
+Q: Create a function called findCircumference that returns the circumference of a circle if given the radius.
 The formula to find the circumference of a circle is PI * 2r where r is the radius.
+
+MY ANSWER:
 
 function findCircumference(a){
     let circ = Math.PI * (2 * a);
@@ -25,14 +30,48 @@ function findCircumference(radius){
 }
 
 
-Write a function called sumOfTwo that takes two numbers as parameters and returns the sum.
+INSTRUCTOR ANSWER: Same as my second way above.
+______________________________________________________
+
+Q: Write a function called sumOfTwo that takes two numbers as parameters and returns the sum.
+
+MY ANSWER:
 
 function sumOfTwo(a, b){
     return a + b;
 }
 
 
-Write a function called speakFriend that takes one parameter.
+INSTRUCTOR ANSWER: Same as mine.
+
+______________________________________________________
+
+Q: Create a function named checkout that accepts 2 variables named cardBalance and price.
+If the price is more than the card balance, return false.
+Otherwise, return the new card balance.
+
+MY ANSWER:
+
+function checkout(cardBalance, price) {
+    if (price > cardBalance) {
+        return false;
+    } else {
+        return cardBalance - price;
+    }
+}
+
+INSTRUCTOR ANSWER: Same as mine, just with condensed spacing.
+
+function checkout(cardBalance, price){
+    if(price > cardBalance) { return false; }
+    else { return cardBalance - price; }
+}
+
+______________________________________________________
+
+EXTRA QUESTIONS THAT MAY COME UP IF YOU DON'T GET THEM ALL RIGHT ON THE FIRST TRY
+
+Q: Write a function called speakFriend that takes one parameter.
 Return the string "Access Denied".
 But, if the passed in value is "Mellon", return "Enter"
 
@@ -53,8 +92,9 @@ function speakFriend(a){
     return "Access Denied";
 }
 
+______________________________________________________
 
-Create a function called isBlue.
+Q: Create a function called isBlue.
 It takes one parameter.
 Return true if it is passed "blue", otherwise return false.
 The passed value can be "blue" with any of the letters capitalized as well (i.e."Blue", "bLue", "BLUE", etc…)
@@ -67,20 +107,9 @@ function isBlue(var1){
 }
 
 
-Create a function named checkout that accepts 2 variables named cardBalance and price.
-If the price is more than the card balance, return false.
-Otherwise, return the new card balance.
+______________________________________________________
 
-function checkout(cardBalance, price){
-    if(cardBalance < price){
-        return "false";
-    } else {
-        return cardBalance - price;
-    }
-}
-
-
-Create a function named returnSum that accepts 3 integer variables named num1, num2, and num3.
+Q: Create a function named returnSum that accepts 3 integer variables named num1, num2, and num3.
 Return the sum of the three variables.
 
 function returnSum(num1, num2, num3){
